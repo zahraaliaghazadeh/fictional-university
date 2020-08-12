@@ -23,15 +23,32 @@
                         <p><a class="metabox__blog-home-link" href="<? echo get_permalink($parentId); ?>"><i class="fa fa-home" aria-hidden="true"></i> Back to <? echo get_the_title($parentId); ?></a> <span class="metabox__main"><? the_title(); ?></span></p>
                     </div>
                 <?}
-            ?>
+
+                $testArray = get_pages(array(
+                    "child_of" => get_the_ID()
+                ));
+
+                if ($parentId or $testArray) { ?>
             
-            <!-- <div class="page-links">
-            <h2 class="page-links__title"><a href="#">About Us</a></h2>
-            <ul class="min-list">
-                <li class="current_page_item"><a href="#">Our History</a></li>
-                <li><a href="#">Our Goals</a></li>
-            </ul>
-            </div> -->
+                    <div class="page-links">
+                        <h2 class="page-links__title"><a href="<? echo get_permalink($parentId) ?>"><? echo get_the_title($parentId) ?></a></h2>
+                        <ul class="min-list">
+                            <?
+                                if ($parentId) {
+                                    $findChildrenOf = $parentId;
+                                } else {
+                                    $findChildrenOf = get_the_ID();
+                                }
+
+                                wp_list_pages(array(
+                                    "title_li" => NULL,
+                                    "child_of" => $findChildrenOf
+                                    // "sort_column" => "menu_order" - set order in admin page
+                                ));
+                            ?>
+                        </ul>
+                    </div>
+            <? } ?>
 
             <div class="generic-content">
                 <? the_content(); ?>

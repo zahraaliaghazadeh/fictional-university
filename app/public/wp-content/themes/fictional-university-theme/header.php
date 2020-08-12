@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html <? language_attributes(); ?>>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="<? bloginfo("charset"); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head(); ?>
     <title>F.U.</title>
 </head>
-<body>
+<body <? body_class(); ?>> 
     <header class="site-header">
       <div class="container">
         <h1 class="school-logo-text float-left">
@@ -17,12 +17,17 @@
         <div class="site-header__menu group">
           <nav class="main-navigation">
             <ul>
-              <li><a href="<? echo site_url("/about-us") ?>">About Us</a></li>
+              <li <? if (is_page("about-us") or wp_get_post_parent_id(0) == 11) echo 'class="current-menu-item"' ?>><a href="<? echo site_url("/about-us") ?>">About Us</a></li>
               <li><a href="#">Programs</a></li>
               <li><a href="#">Events</a></li>
               <li><a href="#">Campuses</a></li>
               <li><a href="#">Blog</a></li>
             </ul>
+            <!-- <?
+              wp_nav_menu(array(
+                "theme_location" => "headerMenuLocation"
+              ));
+            ?> -->
           </nav>
           <div class="site-header__util">
             <a href="#" class="btn btn--small btn--orange float-left push-right">Login</a>

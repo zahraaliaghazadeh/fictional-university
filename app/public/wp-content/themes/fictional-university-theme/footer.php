@@ -20,6 +20,11 @@
                   <li><a href="#">Events</a></li>
                   <li><a href="#">Campuses</a></li>
                 </ul>
+                <!-- <?
+                  wp_nav_menu(array(
+                    "theme_location" => "footerLocationOne"
+                  ));
+                ?> -->
               </nav>
             </div>
 
@@ -31,6 +36,11 @@
                   <li><a href="<? echo site_url("/privacy-policy") ?>">Privacy</a></li>
                   <li><a href="#">Careers</a></li>
                 </ul>
+                <!-- <?
+                  wp_nav_menu(array(
+                    "theme_location" => "footerLocationTwo"
+                  ));
+                ?> -->
               </nav>
             </div>
           </div>
