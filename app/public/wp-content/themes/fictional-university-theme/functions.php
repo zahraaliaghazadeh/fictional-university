@@ -14,4 +14,10 @@
     // 1. which moment when it should be, when you should execute code in header area
     // run custom function (2)
 
+    function university_features() {
+        add_theme_support("title-tag");
+    }
+
+    add_action("after_setup_theme", "university_features");
+
 ?>
